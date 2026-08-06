@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | FinSight Analytics</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+    background:linear-gradient(135deg,#0f172a,#2563eb);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.login-card{
+    width:420px;
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    color:#2563eb;
+    text-align:center;
+}
+
+.subtitle{
+    text-align:center;
+    color:gray;
+    margin-bottom:30px;
+}
+
+.form-control{
+    height:48px;
+}
+
+.btn-login{
+    width:100%;
+    height:48px;
+    font-size:18px;
+}
+
+.footer{
+    text-align:center;
+    margin-top:20px;
+    color:gray;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-card">
+
+<div class="logo">
+📊 FinSight Analytics
+</div>
+
+<div class="subtitle">
+Business Intelligence Dashboard
+</div>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="alert alert-danger">
+{{ messages[0] }}
+</div>
+{% endif %}
+{% endwith %}
+
+<form method="POST" action="/login">
+
+<div class="mb-3">
+
+<label>Email</label>
+
+<input
+type="email"
+name="email"
+class="form-control"
+placeholder="Enter Email"
+required>
+
+</div>
+
+<div class="mb-3">
+
+<label>Password</label>
+
+<input
+type="password"
+name="password"
+class="form-control"
+placeholder="Enter Password"
+required>
+
+</div>
+
+<button class="btn btn-primary btn-login">
+Login
+</button>
+
+</form>
+
+<div class="footer">
+
+Don't have an account?
+
+<a href="/register">
+Register
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
